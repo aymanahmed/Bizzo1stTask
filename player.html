@@ -1,0 +1,34 @@
+<head>
+  <title>player</title>
+</head>
+
+<template name= "player">
+	<body>
+		<a href="/">The proj</a>
+		<audio controls src="{{path}}"></audio>
+		<ul>
+			<li> Song name: {{name}}</li>
+			<li>Singer : {{singer}}</li>
+		</ul>
+		<hr>
+		{{> yield}}
+	</body>
+</template>
+<template name="playList">
+	<h3>Playlist</h3>
+	{{#each songs}}
+		<li>{{> playListItem}}</li>
+	{{/each}}
+	<a href="{{pathFor 'addSong'}}">add Song</a>
+</template>
+<template name="playListItem">
+	<a href="" class="{{selectedClass}}">{{name}} - {{singer}}</a>
+</template>
+<template name="addSong">
+	<form>
+		Song name: <input type="text" name="songName"> <br>
+		Singer: <input type="text" name="singerName"><br>
+		Song link: <input type="text" name="link"><br>
+		<input type="submit">
+	</form> 
+</template>
